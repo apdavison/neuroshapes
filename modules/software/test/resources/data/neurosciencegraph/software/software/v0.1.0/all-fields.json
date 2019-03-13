@@ -1,0 +1,102 @@
+{
+    "@context": [
+      "{{base}}/contexts/neurosciencegraph/core/data/v0.1.0"
+    ],
+    "@type": [
+      "nsg:Software",
+      "nsg:Entity"
+    ],
+    "@id": "{{base}}/data/neurosciencegraph/software/software/v0.1.0/10e68e2d-47fe-47c1-bc5f-195d914d00ad",
+    "schema:name": "NEST v2.16.0",
+    "schema:description": "NEST is a highly scalable simulator for networks of point or few-compartment spiking neuron models. It includes multiple synaptic plasticity models, gap junctions, and the capacity to define complex network structure.",
+    "nsg:providerId": "doi:10.5281/zenodo.1400175",
+    "schema:citation": "Linssen, Charl et al. (2018). NEST 2.16.0. Zenodo. 10.5281/zenodo.1400175",
+    "schema:identifier": [
+        {
+          "schema:propertyID": "doi",
+          "schema:value": "10.5281/zenodo.1400175"
+        },
+        {
+          "@id": "https://doi.org/10.5281/zenodo.1400175"
+        }
+      ],
+    "schema:license": {
+        "@id": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html",
+        "label": "GNU General Public License 2 or later (http://www.nest-simulator.org/license/)"
+    },
+    "schema:dateCreated": "2018-08-21",
+    "prov:wasRevisionOf": {
+        "@id": "{{base}}/data/neurosciencegraph/software/software/v0.1.0/10e69e2d-47fe-47c1-bc5f-195d914d00ac",
+        "@type": "nsg:Software",
+        "schema:name": "NEST v2.14.0"
+    },
+    "prov:wasAttributedTo": [
+        {
+            "@id": "{{base}}/data/neurosciencegraph/core/person/v1.0.0/09e69e2d-47fe-47c1-bc5f-195d914d00ff",
+            "@type": "nsg:Person"
+        },
+        {
+            "@id": "{{base}}/data/neurosciencegraph/core/person/v1.0.0/11e69e2d-47fe-47c1-bc5f-195d914d00ff",
+            "@type": "nsg:Person"
+        }
+    ],
+    "schema:image": {
+    	"@id": "http://www.nest-simulator.org/wp-content/uploads/nest-simulated-www-320.png"
+    },
+    "schema:distribution": {
+        "accessURL": "https://github.com/nest/nest-simulator/releases/tag/v2.16.0",
+        "downloadURL": "https://github.com/nest/nest-simulator/archive/v2.16.0.tar.gz"
+    },
+    "schema:applicationCategory": [
+        "application",
+        "library"
+    ],
+    "schema:applicationSubCategory": "simulator",
+    "schema:operatingSystem": "Linux, OS X",
+    "schema:releaseNotes": "https://github.com/nest/nest-simulator/releases/tag/v2.16.0",
+    "schema:softwareRequirements": "libreadline, gsl, ...",
+    "schema:headline": "NEST is a highly scalable simulator for networks of point or few-compartment spiking neuron models. It includes multiple synaptic plasticity models, gap junctions, and the capacity to define complex network structure.",
+    "schema:author": [
+        {
+            "@id": "{{base}}/data/neurosciencegraph/core/person/v1.0.0/09e69e2d-47fe-47c1-bc5f-195d914d00ff",
+            "@type": "nsg:Person"
+        },
+        {
+            "@id": "{{base}}/data/neurosciencegraph/core/person/v1.0.0/11e69e2d-47fe-47c1-bc5f-195d914d00ff",
+            "@type": "nsg:Person"
+        }
+    ],
+    "schema:copyrightHolder": {
+        "@id": "{{base}}/data/neurosciencegraph/core/organization/v1.0.0/22e69e2d-47fe-47c1-ab5f-195d914d00ff",
+        "@type": "nsg:Organization"
+    },
+    "schema:copyrightYear": 2018,
+    "schema:encodingFormat": [
+        "text/x-c++", "text/x-python"
+    ],
+    "schema:funder": [
+        {
+            "@id": "{{base}}/data/neurosciencegraph/core/organization/v1.0.0/33e69e2d-47fe-47c1-ab5f-195d914d00ff",
+            "@type": "nsg:Organization"
+        },
+        {
+            "@id": "{{base}}/data/neurosciencegraph/core/organization/v1.0.0/44e69e2d-47fe-47c1-ab5f-195d914d00ff",
+            "@type": "nsg:Organization"
+        }
+    ],
+    "schema:isAccessibleForFree": true,
+    "schema:keywords": "simulation, NEST",
+    "schema:version": "2.16.0",
+    "schema:url": {
+    	"@id": "http://www.nest-simulator.org/"
+    },
+    "schema:documentation": {
+    	"@id": "http://www.nest-simulator.org/documentation/"
+    },
+    "schema:softwareHelp": {
+    	"@id": "http://www.nest-simulator.org/community/"
+    },
+    "schema:code": {
+    	"@id": "https://github.com/nest/nest-simulator"
+    }
+  }
