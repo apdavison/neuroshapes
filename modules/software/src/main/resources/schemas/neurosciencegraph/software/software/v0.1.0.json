@@ -1,0 +1,194 @@
+{
+    "@context": [
+        "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "{{base}}/schemas/neurosciencegraph/software/software/v0.1.0/shapes/"
+        }
+    ],
+    "@type": "nxv:Schema",
+    "imports": [
+        "{{base}}/schemas/neurosciencegraph/commons/entity/v1.0.0",
+        "{{base}}/schemas/neurosciencegraph/commons/typedlabeledontologyterm/v0.1.2"
+    ],
+    "shapes": [
+        {
+            "@id": "this:SoftwareShape",
+            "@type": "sh:NodeShape",
+            "label": "This shape represents a piece of software, such as a library or an application",
+            "targetClass": "nsg:Software",
+            "nodekind": "sh:BlankNodeOrIRI",
+            "and": [
+                {
+                    "node": "{{base}}/schemas/neurosciencegraph/commons/entity/v1.0.0/shapes/EntityShape",
+                    "comment": "The following properties are provided by EntityShape: schema:name, schema:description, nsg:providerId, schema:citation, schema:license, schema:dateCreated, prov:wasRevisionOf, prov:wasDerivedFrom, prov:wasAttributedTo, schema:image, schema:distribution, schema:identifier"
+                },
+                {
+                    "property": [
+                        {
+                            "path": "schema:applicationCategory",
+                            "name": "Category",
+                            "xone": [
+                                {
+                                    "datatype": "xsd:string"
+                                },
+                                {
+                                    "nodeKind": "sh:IRI"
+                                }
+                            ],
+                            "description": "Type of software, e.g. 'library, application'."
+                        },
+                        {
+                            "path": "schema:applicationSubCategory",
+                            "name": "Sub-category",
+                            "xone": [
+                                {
+                                    "datatype": "xsd:string"
+                                },
+                                {
+                                    "nodeKind": "sh:IRI"
+                                }
+                            ],
+                            "description": "Subcategory of the application, e.g. 'simulator'."
+                        },
+                        {
+                            "path": "schema:operatingSystem",
+                            "name": "Operating system",
+                            "datatype": "xsd:string",
+                            "description": "Operating systems supported (e.g. Windows 7, OSX 10.6, Linux)."
+                        },
+                        {
+                            "path": "schema:releaseNotes",
+                            "name": "Release notes",
+                            "xone": [
+                                {
+                                    "datatype": "xsd:string"
+                                },
+                                {
+                                    "nodeKind": "sh:IRI"
+                                }
+                            ],
+                            "description": "Description of what changed in this version.",
+                            "maxCount": 1
+                        },
+                        {
+                            "path": "schema:screenshot",
+                            "name": "Screenshot(s)",
+                            "nodeKind": "sh:IRI",
+                            "description": "A link to a screenshot image of the software."
+                        },
+                        {
+                            "path": "schema:softwareRequirements",
+                            "name": "Software requirements",
+                            "datatype": "xsd:string",
+                            "description": "Component dependency requirements for software"
+                        },
+                        {
+                            "path": "schema:headline",
+                            "name": "Summary",
+                            "datatype": "xsd:string",
+                            "description": "A short (e.g. one line) description of the software",
+                            "maxCount": 1
+                        },
+                        {
+                            "path": "schema:author",
+                            "name": "Author(s)",
+                            "nodeKind": "sh:IRI",
+                            "description": "The author(s) and/or contributors to this software, either a person or an organisation."
+                        },
+                        {
+                            "path": "schema:copyrightHolder",
+                            "name": "Copyright holder(s)",
+                            "nodeKind": "sh:IRI",
+                            "description": "The party(ies) holding the legal copyright to the software."
+                        },
+                        {
+                            "path": "schema:copyrightYear",
+                            "name": "Copyright year",
+                            "datatype": "xsd:integer",
+                            "description": "The year during which the claimed copyright for the software was first asserted.",
+                            "maxCount": 1
+                        },
+                        {
+                            "path": "schema:encodingFormat",
+                            "name": "Programming language",
+                            "datatype": "xsd:string",
+                            "description": "The programming language(s) in which the software is written"
+                        },
+                        {
+                            "path": "schema:funder",
+                            "name": "Funder",
+                            "xone": [
+                                {
+                                    "datatype": "xsd:string"
+                                },
+                                {
+                                    "nodeKind": "sh:IRI"
+                                }
+                            ],
+                            "description": "A person or organization that supports (sponsors) the software through some kind of financial contribution."
+                        },
+                        {
+                            "path": "schema:hasPart",
+                            "name": "Components",
+                            "nodeKind": "sh:IRI",
+                            "description": "Links to sub-components of the software. Inverse property: isPartOf."
+                        },
+                        {
+                            "path": "schema:isAccessibleForFree",
+                            "name": "Is accessible for free",
+                            "datatype": "xsd:boolean",
+                            "description": "A flag to signal that the software is accessible for free.",
+                            "maxCount": 1
+                        },
+                        {
+                            "path": "schema:isPartOf",
+                            "name": "Part of",
+                            "nodeKind": "sh:IRI",
+                            "description": "Parent software, of which this is a component. Inverse property: hasPart."
+                        },
+                        {
+                            "path": "schema:keywords",
+                            "name": "Keywords",
+                            "datatype": "xsd:string",
+                            "description": "Keywords or tags used to describe this software. Multiple entries in a keywords list are typically delimited by commas."
+                        },
+                        {
+                            "path": "schema:version",
+                            "name": "Version",
+                            "datatype": "xsd:string",
+                            "description": "The version of the software.",
+                            "maxCount": 1
+                        },
+                        {
+                            "path": "schema:url",
+                            "name": "Homepage",
+                            "nodeKind": "sh:IRI",
+                            "description": "Link to the homepage of the software",
+                            "maxCount": 1
+                        },
+                        {
+                            "path": "schema:documentation",
+                            "name": "Documentation",
+                            "nodeKind": "sh:IRI",
+                            "description": "Link to documentation of the software"
+
+                        },
+                        {
+                            "path": "schema:softwareHelp",
+                            "name": "Support",
+                            "nodeKind": "sh:IRI",
+                            "description": "Link(s) to obtain support in using the software"
+
+                        },
+                        {
+                            "path": "schema:code",
+                            "name": "Source code",
+                            "nodeKind": "sh:IRI",
+                            "description": "Link to the source code of the software"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
