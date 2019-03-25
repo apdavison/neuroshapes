@@ -1,0 +1,154 @@
+{
+    "@context": [
+    	{
+            "imports": {
+                "@id": "owl:imports",
+                "@type": "@id",
+                "@container": "@set"
+            },
+            "owl": "http://www.w3.org/2002/07/owl#"
+        },
+        "{{base}}/contexts/nexus/core/resource/v0.3.0",
+        "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
+        {
+            "this": "{{base}}/schemas/neuralactivity/simulation/validationtestdefinition/v0.1.0/shapes/"
+        }
+    ],
+    "@type": "nxv:Schema",
+    "imports": [
+        "{{base}}/schemas/neuralactivity/commons/entity/v0.1.0",
+        "{{base}}/schemas/neuralactivity/commons/typedlabeledontologyterm/v0.1.2",
+        "{{base}}/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.0"
+
+    ],
+    "shapes": [{
+        "@id": "this:ValidationTestDefinitionShape",
+        "@type": "sh:NodeShape",
+        "label": "This shape represents the definition/protocol/configuration for a model validation test",
+        "nodekind": "sh:BlankNodeOrIRI",
+        "targetClass": "nsg:ValidationTestDefinition",
+        "and": [{
+                "node": "{{base}}/schemas/neuralactivity/commons/entity/v0.1.0/shapes/EntityShape"
+            },
+            {
+                "property": [
+                    {
+                        "path": "schema:name",
+                        "name": "Name",
+                        "description": "the name of the validation test",
+                        "datatype": "xsd:string",
+                        "minCount": "1",
+                        "maxCount": "1"
+                    },
+                    {
+                        "path": "nsg:alias",
+                        "name": "Alias",
+                        "description": "a short alias for the validation test",
+                        "editorialNote": "used as an identifier, should be unique.",
+                        "datatype": "xsd:string",
+                        "maxCount": "1"
+                    },
+                    {
+                        "path": "nsg:testType",
+                        "name": "Test type",
+                        "description": "single cell activity, cell morphology, network structure, network activity, subcellular"
+                    },
+                    {
+                        "path": "nsg:brainRegion",
+                        "name": "Brain region",
+                        "description": "Brain region",
+                        "node": "{{base}}/schemas/neuralactivity/commons/typedlabeledontologyterm/v0.1.2/shapes/BrainRegionOntologyTermShape"
+                    },
+                    {
+                        "path": "nsg:species",
+                        "name": "Species",
+                        "description": "Species",
+                        "node": "{{base}}/schemas/neuralactivity/commons/typedlabeledontologyterm/v0.1.2/shapes/SpeciesOntologyTermShape"
+                    },
+                    {
+                        "path": "nsg:celltype",
+                        "name": "Cell type",
+                        "description": "Cell type",
+                        "node": "{{base}}/schemas/neuralactivity/commons/typedlabeledontologyterm/v0.1.2/shapes/CellTypeOntologyTermShape"
+                    },
+                    {
+                        "path": "schema:author",
+                        "name": "Author",
+                        "description": "Author(s) of the validation test",
+                        "node": "{{base}}/schemas/neuralactivity/commons/person/v0.1.0/shapes/PersonShape",
+                        "minCount": "1"
+                    },
+                    {
+                        "path": "schema:description",
+                        "name": "Description",
+                        "description": "Description of the validation test, including a summary of the experimental protocol",
+                        "datatype": "xsd:string",
+                        "minCount": "1",
+                        "maxCount": "1"
+                    },
+                    {
+                        "path": "nsg:age",
+                        "name": "Age",
+                        "description": "The age of the subject being modelled",
+                        "node": "this:AgeShape",
+                        "maxCount": 1
+                    },
+                    {
+                        "path": "nsg:referenceData",
+                        "name": "Reference data",
+                        "description": "Experimental data to which the model output will be compared",
+                        "class": "nsg:Collection"
+                    },
+                    {
+                        "path": "nsg:dataType",
+                        "name": "Data type",
+                        "description": "Type of comparison data (number, histogram, time series, etc.)",
+                        "datatype": "xsd:string"
+                    },
+                    {
+                        "path": "nsg:recordingModality",
+                        "name": "Recording modality",
+                        "description": "Recording modality for comparison data (ephys, fMRI, 2-photon, etc)",
+                        "datatype": "xsd:string"
+                    },
+                    {
+                        "path": "nsg:scoreType",
+                        "name": "Score type",
+                        "description": "Type of score: p-value, r square ..",
+                        "datatype": "xsd:string"
+                    },
+                    {
+                        "path": "nsg:status",
+                        "name": "Status",
+                        "description": "Status of the test definition",
+                        "datatype": "xsd:string",
+                        "in": ["proposal", "published", "in development"]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "@id": "this:AgeShape",
+        "@type": "sh:NodeShape",
+        "property": [
+        {
+            "path": "nsg:period",
+            "name": "Period",
+            "in": [
+            "Pre-natal",
+            "Post-natal"
+            ],
+            "minCount": 1,
+            "maxCount": 1
+        },
+        {
+            "path": "schema:value",
+            "name": "Age value",
+            "node": "{{base}}/schemas/neurosciencegraph/commons/quantitativevalue/v0.1.2/shapes/QuantitativeValueShape",
+            "minCount": 1,
+            "maxCount": 1
+        }
+        ]
+    }]
+}
