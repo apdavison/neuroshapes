@@ -1,0 +1,90 @@
+{
+  "@context": [
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
+    {
+      "this": "{{base}}/schemas/neurosciencegraph/simulation/validationscript/v0.1.1/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/neurosciencegraph/commons/entity/v1.0.0",
+    "{{base}}/schemas/nexus/core/distribution/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:ValidationScriptShape",
+      "@type": "sh:NodeShape",
+      "label": "This shape is for...",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:ValidationScript",
+      "and": [
+        {
+          "node": "{{base}}/schemas/neurosciencegraph/commons/entity/v1.0.0/shapes/EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:distribution",
+              "name": "Distribution",
+              "description": "Location of the code, if not under version control",
+              "node": "this:ValidationScriptDistributionShape"
+            },
+            {
+              "path": "schema:codeRepository",
+              "name": "Repository",
+              "description": "Link to the repository where the source code is located",
+              "nodeKind": "sh:IRI"
+            },
+            {
+              "path": "schema:version",
+              "name": "Version",
+              "datatype": "xsd:string",
+              "description": "The version of the code.",
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:parameters",
+              "name": "Parameters",
+              "datatype": "xsd:string",
+              "description": "Parameters used to initialize the test class"
+            },
+            {
+              "path": "nsg:path",
+              "datatype": "xsd:string",
+              "description": "path to test class within Python code",
+            },
+            {
+              "path": "nsg:implements",
+              "node": "{{base}}/schemas/neurosciencegraph/simulation/validationtestdefinition/v0.1.0/shapes/ValidationTestDefinitionShape",
+              "description": "Validation test implemented by this code"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:ValidationScriptDistributionShape",
+      "@type": "sh:NodeShape",
+      "label": "This shape is for...",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/nexus/core/distribution/v0.1.0/shapes/DistributionShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:mediaType",
+              "name": "Media type",
+              "description": "Validation script media types",
+              "in": [
+                "application/x-python",
+                "text/x-python"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
